@@ -1,0 +1,9 @@
+﻿index,check,impact,confidence,file,lines,description
+1,arbitrary-send-eth,High,Medium,AuditTarget.sol,"37,38,39; 38","LotteryHub_0117.grant(address,uint256) (AuditTarget.sol#37-39) sends eth to arbitrary user 	Dangerous calls: 	- to.transfer(amount) (AuditTarget.sol#38)"
+2,weak-prng,High,Medium,AuditTarget.sol,"55,56,57; 56","LotteryHub_0117.weekdayIndex() (AuditTarget.sol#55-57) uses a weak PRNG: ""(block.timestamp / 86400 + 4) % 7 (AuditTarget.sol#56)"""
+3,uninitialized-state,High,High,AuditTarget.sol,"13; 51,52,53",LotteryHub_0117.beneficiary (AuditTarget.sol#13) is never initialized. It is used in: 	- LotteryHub_0117.moveToTreasury() (AuditTarget.sol#51-53)
+4,divide-before-multiply,Medium,Medium,AuditTarget.sol,"59,60,61; 60",LotteryHub_0117.previewFee(uint256) (AuditTarget.sol#59-61) performs a multiplication on the result of a division: 	- amount / 10000 * feeBps (AuditTarget.sol#60)
+5,incorrect-equality,Medium,High,AuditTarget.sol,"41,42,43; 42",LotteryHub_0117.isEmpty() (AuditTarget.sol#41-43) uses a dangerous strict equality: 	- address(this).balance == 0 (AuditTarget.sol#42)
+6,tx-origin,Medium,Medium,AuditTarget.sol,"45,46,47,48,49; 46","LotteryHub_0117.transferControl(address) (AuditTarget.sol#45-49) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,not owner) (AuditTarget.sol#46)"
+7,constable-states,Optimization,High,AuditTarget.sol,14,LotteryHub_0117.feeBps (AuditTarget.sol#14) should be constant
+8,constable-states,Optimization,High,AuditTarget.sol,13,LotteryHub_0117.beneficiary (AuditTarget.sol#13) should be constant

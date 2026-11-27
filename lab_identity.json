@@ -1,0 +1,9 @@
+{
+  "mssv": "25520117",
+  "session_code": "SC-ED05D0",
+  "contract": "LotteryHub_0117",
+  "baseline_sha256": "e3aa2723daa4de035f10802bd72ff821ad5c694fc69076c4649797c817be55f3",
+  "generated_utc": "2026-11-27T10:59:45.869940+00:00",
+  "solidity": "0.8.24",
+  "note": "session_code sinh tai may SV, KHONG do GV cap"
+}
