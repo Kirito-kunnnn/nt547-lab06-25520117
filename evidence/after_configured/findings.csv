@@ -1,0 +1,5 @@
+﻿index,check,impact,confidence,file,lines,description
+1,weak-prng,High,Medium,AuditTarget.sol,"70,71,72,73; 72","LotteryHub_0117.weekdayIndex() (AuditTarget.sol#70-73) uses a weak PRNG: ""(daysSinceEpoch + 4) % 7 (AuditTarget.sol#72)"""
+2,incorrect-equality,Medium,High,AuditTarget.sol,"51,52,53; 52",LotteryHub_0117.isEmpty() (AuditTarget.sol#51-53) uses a dangerous strict equality: 	- address(this).balance == 0 (AuditTarget.sol#52)
+3,constable-states,Optimization,High,AuditTarget.sol,14,LotteryHub_0117.feeBps (AuditTarget.sol#14) should be constant
+4,immutable-states,Optimization,High,AuditTarget.sol,13,LotteryHub_0117.beneficiary (AuditTarget.sol#13) should be immutable

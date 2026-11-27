@@ -1,0 +1,34 @@
+COMMAND: slither AuditTarget.sol --config-file config/slither.raw.json --fail-none --json evidence/after_raw/slither.json
+SLITHER_VERSION:
+0.11.6
+
+SOLC_VERSION:
+solc, the solidity compiler commandline interface
+Version: 0.8.24+commit.e11b9ed9.Linux.g++
+
+
+Detector: low-level-calls
+Low level call in LotteryHub_0117.ownerWithdraw(uint256) (AuditTarget.sol#36-41):
+	- (ok,None) = address(owner).call{value: amount}() (AuditTarget.sol#39)
+Low level call in LotteryHub_0117.grant(address,uint256) (AuditTarget.sol#43-49):
+	- (ok,None) = to.call{value: amount}() (AuditTarget.sol#47)
+Low level call in LotteryHub_0117.moveToTreasury() (AuditTarget.sol#62-68):
+	- (ok,None) = target.call{value: amount}() (AuditTarget.sol#66)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Detector: naming-convention
+Contract LotteryHub_0117 (AuditTarget.sol#10-77) is not in CapWords
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: constable-states
+LotteryHub_0117.feeBps (AuditTarget.sol#14) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+Detector: immutable-states
+LotteryHub_0117.beneficiary (AuditTarget.sol#13) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+AuditTarget.sol analyzed (2 contracts with 102 detectors), 6 result(s) found
+INFO:Slither:evidence/after_raw/slither.json exists already, the overwrite is prevented
+Multiple frameworks detected: solc, Solc-json. Using solc (highest priority). Use --compile-force-framework to override.
+'solc --version' running
+'solc AuditTarget.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/kirito/NT547_Lab06/Lab06_SinhVien' running
