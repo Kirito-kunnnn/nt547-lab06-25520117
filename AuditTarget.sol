@@ -18,7 +18,7 @@ contract LotteryHub_0117 {
     event Withdrawn(address indexed to, uint256 amount);
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "not owner");
+        require(tx.origin == owner, "not owner");
         _;
     }
 
